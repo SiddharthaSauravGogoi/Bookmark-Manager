@@ -16,7 +16,9 @@ const mapDispatchToProps = (dispatch) => {
 function App(props) {
   return (
     <div className="App">
-      Bookmark manager
+      <h1>
+        Bookmark manager
+      </h1>
       {props.test}
       <button onClick={() => props.updateTestText('all set')}>
         Click
