@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return { updateTestText };
 };
 
-function App(props) {
+export function App(props) {
   return (
     <div className="App">
       <h1>
