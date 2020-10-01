@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 
 export function App(props) {
   return (
-    <div className="App">
+    <div className="container-fluid">
       <h1>
         Bookmark manager
       </h1>
