@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import test from './actions/actions';
 import './App.css';
+import Navigation from './components/Navigation/index.jsx';
 
 const mapStateToProps = (state) => ({
   test: state.test.payload,
@@ -13,16 +14,12 @@ const mapDispatchToProps = (dispatch) => {
   return { updateTestText };
 };
 
-export function App(props) {
+export function App() {
   return (
     <div className="container-fluid">
-      <h1>
-        Bookmark manager
-      </h1>
-      {props.test}
-      <button onClick={() => props.updateTestText('all set')}>
-        Click
-      </button>
+      <h1> Bookmark Manager</h1>
+      <Navigation />
+      {/* <a href="/search" className="btn btn-outline-primary"> Add </a> */}
     </div>
   );
 }
