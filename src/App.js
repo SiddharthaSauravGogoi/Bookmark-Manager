@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import test from './actions/actions';
+import { test } from './actions/actions';
 import './App.css';
 import Navigation from './components/Navigation/index.jsx';
 
@@ -19,7 +19,6 @@ export function App() {
     <div className="container-fluid">
       <h1> Bookmark Manager</h1>
       <Navigation />
-      {/* <a href="/search" className="btn btn-outline-primary"> Add </a> */}
     </div>
   );
 }
