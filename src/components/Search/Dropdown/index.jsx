@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function Dropdown() {
+export default function Dropdown(props) {
+  const [dropdownLabel, setDropdownLabel] = useState('Select');
+
   const getDropdownValue = (event) => {
     if (event.target.innerHTML.toLowerCase() === 'users') {
-      // do stuff
+      setDropdownLabel('Users');
+      props.setSearchFilter('users');
     } else if (event.target.innerHTML.toLowerCase() === 'repositories') {
-      // do stuff
+      setDropdownLabel('Repositories');
+      props.setSearchFilter('repositories');
     }
   };
   return (
@@ -17,13 +22,16 @@ export default function Dropdown() {
         aria-haspopup="true"
         aria-expanded="false"
         >
-        Dropdown button
+        {dropdownLabel}
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li className="dropdown-item">Users</li>
         <li className="dropdown-item">Repositories</li>
-
       </div>
     </div>
   );
 }
+
+Dropdown.propTypes = {
+  setSearchFilter: PropTypes.func,
+};

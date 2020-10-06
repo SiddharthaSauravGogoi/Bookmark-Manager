@@ -1,14 +1,36 @@
 import React from 'react';
-import Dropdown from './Dropdown/index.jsx';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { searchFilter } from '../../actions/actions';
 import SearchComponent from './SearchComponent/index.jsx';
 
-export default function Search() {
+const mapStateToProps = (state) => ({
+  filter: state.search.filter,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  const setSearchFilter = (param) => dispatch(searchFilter(param));
+  return {
+    setSearchFilter,
+  };
+};
+
+export function Search(props) {
   return (
     <main>
-      <div className="display-flex">
-        <SearchComponent />
-        <Dropdown />
+      <div className="row">
+        <SearchComponent
+          search={props.filter}
+          setSearchFilter={props.setSearchFilter}
+        />
       </div>
     </main>
   );
 }
+
+Search.propTypes = {
+  filter: PropTypes.string,
+  setSearchFilter: PropTypes.func,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

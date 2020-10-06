@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Repositories from '../Repositories/index.jsx';
-import Search from '../Search/index.jsx';
+import { Search } from '../Search/index.jsx';
 
 export default function Navigation() {
   return (
